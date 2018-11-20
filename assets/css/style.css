@@ -1,0 +1,102 @@
+:root {
+	--secondary-color: #039be5;
+	--prime-color: rgba(38,50,56,0.9);/* for navbar and dropdown color */
+}
+
+/* *********** NAVBAR *********** */
+nav .nav-wrapper #navbar_links li a:hover {
+	/* background-color: #009688; */
+}
+header nav{
+	background-color: var(--prime-color);
+}
+header nav .nav-wrapper .dropdown-content li a{
+	color: var(--prime-color);
+}
+
+/* *********** !NAVBAR *********** */
+/* *********** SIDENAV ********** */
+.sidenav li.active {
+	background-color: rgba(0, 0, 0, 0.07);
+}
+
+nav .sidenav li a {
+	font-weight: 500;
+	/* color: #1976d2; */
+	color: var(--secondary-color);
+}
+
+nav .sidenav li a i {
+	/* color: #1976d2 !important; */
+	color: var(--secondary-color) !important;
+}
+
+.sidenav .collapsible-header {
+	padding: 0 32px !important;
+}
+
+.sidenav .collapsible-body li a {
+	padding: 0 75px;
+}
+
+.sidenav li>a>i {
+	margin-right: 18px !important;
+}
+
+/* *********** SIDENAV ********** */
+
+/* *********** SLIDER ************ */
+main .slider .slides li .caption h3 {
+	color: #212121;
+}
+
+main .slider .slides li .caption h5 {
+	color: #616161;
+}
+
+/* *********** !SLIDER ************ */
+
+
+
+/* *********** TEMPLATES SECTION *********** */
+
+/* *********** !TEMPLATES SECTION *********** */
+
+
+
+/* *********** SNIPPETS SECTION ***********  */
+main .container .center #snippet_btn {
+	text-transform: none !important;
+}
+
+/* *********** !SNIPPETS SECTION ***********  */
+
+
+
+/* *********** FOOTER *********** */
+footer .container .row .col #social li {
+	display: inline !important;
+	margin-right: 20px;
+}
+
+footer .container .row .col #social li a .fa-facebook-square:hover {
+	color: #3b5998 !important;
+}
+
+footer .container .row .col #social li a .fa-google-plus-square:hover {
+	color: #db4437 !important;
+}
+
+footer .container .row .col #social li a .fa-instagram:hover {
+	color: #262626 !important;
+}
+
+footer .container .row .col #links li {
+	margin-top: 10px !important;
+}
+
+.page-footer .footer-copyright {
+	background-color: #222d32;
+}
+
+/* *********** !FOOTER *********** */

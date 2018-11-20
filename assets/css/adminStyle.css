@@ -1,0 +1,17 @@
+.container .row .card .card-content #form #submit{
+    margin-left: 43px !important;
+
+}
+
+.container .section .card .input-field .parsley-error{
+    border-bottom: 1px solid #B94A48 !important;
+    box-shadow: 0 1px 0 0 #B94A48 !important;
+}
+
+.container .section .card .input-field .prefix{
+    color: #607d8b;
+}
+.container .section .card .input-field .prefix.active{
+    color: #455a64;
+}
+
