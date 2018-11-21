@@ -9,17 +9,17 @@
                         <div class="card-content">
                             <h4 class="center blue-grey-text text-darken-1">Login</h4>
                             <div class="section">
-                                <?= form_open('admin/login') ?>
+                                <?= form_open('admin/login',['id'=>'form']) ?>
                                     <div class="input-field">
                                         <i class="material-icons prefix">email</i>
-                                        <input type="text" name="email" id="email">
+                                        <input type="text" name="email" id="email" data-parsley-required data-parsley-type="email" data-parsley-trigger="keyup">
                                         <label for="email">EMAIL</label>
                                     </div>
                                     <?= form_error('email') ?>
 
                                     <div class="input-field">
                                         <i class="material-icons prefix">phone</i>
-                                        <input type="password" name="password" id="password">
+                                        <input type="password" name="password" id="password" data-parsley-required data-parsley-length="[3, 25]" data-parsley-pattern="^[a-zA-Z0-9_]*$" data-parsley-trigger="keyup">
                                         <label for="password">PASSWORD</label>
                                     </div>
                                     <?= form_error('password') ?>
@@ -39,3 +39,19 @@
 
 
 <?php include "footer.php"; ?>
+
+<?php
+if($msg = $this->session->flashdata('msg')){
+    if(isset($msg)){
+        $message = $msg;
+        echo "
+            <script>
+                $(document).ready(function(){
+                    M.toast({html:'$message',classes:'deep-orange-text text-accent-2'});
+                });
+            </script>
+        ";
+
+    }
+}
+?>

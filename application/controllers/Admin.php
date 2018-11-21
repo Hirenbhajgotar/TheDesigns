@@ -43,8 +43,8 @@ class Admin extends CI_Controller
                 return redirect('Deshbord');
             }
             else{
-                $this->session->set_flashdata();
-                return redirect('');
+                $this->session->set_flashdata('msg', 'INVALID EMAIL OR PASSWORD');
+                return redirect('admin/login');
             }
 
         }

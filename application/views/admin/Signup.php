@@ -25,14 +25,14 @@
 
                                         <div class="input-field">
                                             <i class="material-icons prefix">phone</i>
-                                            <input type="password" name="password" id="password" data-parsley-required data-parsley-length="[3, 22]" data-parsley-pattern="^[a-zA-Z0-9_]*$" data-parsley-trigger="keyup">
+                                            <input type="password" name="password" id="password" data-parsley-required data-parsley-length="[3, 25]" data-parsley-pattern="^[a-zA-Z0-9_]*$" data-parsley-trigger="keyup">
                                             <label for="password">PASSWORD</label>
                                         </div>
                                         <?= form_error('password') ?>
 
                                         <div class="input-field">
                                             <i class="material-icons prefix">phone</i>
-                                            <input type="password" id="confirm_password" data-parsley-required data-parsley-equalto="#password" data-parsley-pattern="^[a-zA-Z0-9_]*$" data-parsley-length="[3, 22]">
+                                            <input type="password" id="confirm_password" data-parsley-required data-parsley-equalto="#password" data-parsley-pattern="^[a-zA-Z0-9_]*$" data-parsley-length="[3, 25]">
                                             <label for="confirm_password">CONFIRM PASSWORD</label>
                                         </div>
                                         
