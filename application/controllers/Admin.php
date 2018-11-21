@@ -1,6 +1,8 @@
 <?php
 class Admin extends CI_Controller
 {
+
+// ----- admin signup ------------------------------------------
     public function Signup()
     {
 
@@ -23,9 +25,46 @@ class Admin extends CI_Controller
         }
         
     }
+// -----------------------------------------------------------
 
 
-    
+// ------ admin login -----------------------------------------
+    public function login()
+    {
+        if($this->form_validation->run('admin_login')){
+            $email    = $this->input->post('email');
+            $password = $this->input->post('password');
+           
+            $this->load->model('Signup_login_model');
+            $id = $this->Signup_login_model->login($email, $password);
+
+            if($id){
+                $this->session->set_userdata('id', $id);
+                return redirect('Deshbord');
+            }
+            else{
+                $this->session->set_flashdata();
+                return redirect('');
+            }
+
+        }
+        else{
+            $this->load->view('admin/login');
+        }
+        
+    }
+// --------------------------------------------------------------
+
+
+// -------admin logout ------------------------------------------
+    public function logout()
+    {
+        $this->session->unset_userdata('id');
+        return redirect('admin/login');
+    }
+// --------------------------------------------------------------
+
+
 
 
 

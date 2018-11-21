@@ -19,7 +19,7 @@
 
                                     <div class="input-field">
                                         <i class="material-icons prefix">phone</i>
-                                        <input type="text" name="password" id="password">
+                                        <input type="password" name="password" id="password">
                                         <label for="password">PASSWORD</label>
                                     </div>
                                     <?= form_error('password') ?>

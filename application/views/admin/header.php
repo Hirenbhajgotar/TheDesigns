@@ -15,6 +15,13 @@
         <nav>
             <div class="nav-wrapper container">
                 <a href="<?= base_url('Admin/login') ?>" class="brand-logo">TheDesign</a>
+                <?php if($this->session->userdata('id')): ?>
+                    <ul class="right">
+                        <li>
+                            <a href="<?= base_url('admin/logout') ?>" class="btn waves-effect waves-light transparent">logout</a>
+                        </li>
+                    </ul>
+                <?php endif; ?>
             </div>
         </nav>
     </header>
