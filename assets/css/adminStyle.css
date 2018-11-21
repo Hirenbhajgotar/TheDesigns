@@ -1,3 +1,20 @@
+:root {
+	--secondary-color: #039be5;
+	--prime-color: rgba(38, 50, 56, 0.9);
+	/* for navbar and dropdown color */
+}
+body{
+    background-color: #f5f5f5;
+}
+
+/* **************** navbar **************** */
+header nav{
+    background-color: var(--prime-color);
+}
+/* **************** end navbar **************** */
+
+
+/* ************ signup form validation error ************ */
 .container .row .card .card-content #form #submit{
     margin-left: 43px !important;
 
@@ -14,4 +31,8 @@
 .container .section .card .input-field .prefix.active{
     color: #455a64;
 }
+.container .card .card-content .section form .btn{
+    margin-left: 43px;
+}
 
+/* ************ end signup form validation error ************ */

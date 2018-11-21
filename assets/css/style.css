@@ -1,20 +1,24 @@
 :root {
 	--secondary-color: #039be5;
-	--prime-color: rgba(38,50,56,0.9);/* for navbar and dropdown color */
+	--prime-color: rgba(38,50,56,0.9); /* for navbar and dropdown color */
 }
-
+body{
+	background-color: #f5f5f5;
+}
 /* *********** NAVBAR *********** */
 nav .nav-wrapper #navbar_links li a:hover {
 	/* background-color: #009688; */
 }
 header nav{
-	background-color: var(--prime-color);
+	background-color: var(--prime-color) !important;
 }
 header nav .nav-wrapper .dropdown-content li a{
-	color: var(--prime-color);
+	color: var(--prime-color) !important;
 }
 
-/* *********** !NAVBAR *********** */
+/* *********** end navbar *********** */
+
+
 /* *********** SIDENAV ********** */
 .sidenav li.active {
 	background-color: rgba(0, 0, 0, 0.07);
@@ -43,7 +47,8 @@ nav .sidenav li a i {
 	margin-right: 18px !important;
 }
 
-/* *********** SIDENAV ********** */
+/* *********** end SIDENAV ********** */
+
 
 /* *********** SLIDER ************ */
 main .slider .slides li .caption h3 {

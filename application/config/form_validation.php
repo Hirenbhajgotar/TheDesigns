@@ -17,7 +17,22 @@ $config = [
             'rules' => 'required|min_length[3]|max_length[25]|alpha_dash'
         ]
         
+    ],
+
+    'admin_login' => [
+
+        [
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|valid_email'
+        ],
+        [
+            'field' => 'password',
+            'label' => 'Password',
+            'rules' => 'required|alpha_dash'
+        ]
     ]
+
 ]
 
 

@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Designs</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('/assets/css/materialize.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('/assets/css/parsley.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('/assets/css/style.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/materialize.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/parsley.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 </head>
 <body>
     <!-- NAVBAR -->
     <header>
-        <nav class="teal lighten-1">
+        <nav>
             <div class="nav-wrapper container">
                 <a href="#" class="sidenav-trigger right" data-target="mobile-demo"><i class="material-icons">menu</i></a>
                 <a href="<?= base_url('') ?>" class="brand-logo left">TheDesigns</a>

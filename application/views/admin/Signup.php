@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign up</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('/assets/css/materialize.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('/assets/css/parsley.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('/assets/css/adminStyle.css') ?>">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-wrapper container">
-                <a href="<?= base_url('Admin/login') ?>" class="brand-logo">TheDesign</a>
-            </div>
-        </nav>
-    </header>
-
+<?php include "header.php"; ?>
     <main>
         <div class="container">
             <div class="row">
@@ -26,7 +6,7 @@
                     <div class="section">
                         <div class="card">
                             <div class="card-content">
-                                <h4 class="center blue-grey-text text-darken-1">Login</h4>
+                                <h4 class="center blue-grey-text text-darken-1">Sign up</h4>
                                 <div class="section">
                                     <?= form_open('Admin/Signup',['id'=>'form']) ?>
                                         <div class="input-field">
@@ -57,7 +37,7 @@
                                         </div>
                                         
                                         <button type="submit" class="btn waves-effect waves-light">Sign up</button>
-                                        Have an account? <a href="<?= base_url() ?>">Login</a>
+                                        Have an account? <a href="<?= base_url('admin/login') ?>">Login</a>
                                     <?= form_close() ?>
                                 </div>
                             </div>
@@ -69,14 +49,4 @@
         
     </main>
 
-    <script src="<?= base_url('/assets/js/jquery.js') ?>"></script>
-    <script src="<?= base_url('/assets/js/materialize.min.js') ?>"></script>
-    
-    <script src="<?= base_url('/assets/js/init.js') ?>"></script>
-    <script src="<?= base_url('/assets/js/dist/parsley.min.js') ?>"></script>
-    <script>
-        $('#form').parsley();
-    </script>
-
-</body>
-</html>
+<?php include "footer.php"; ?>
