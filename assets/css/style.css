@@ -1,6 +1,8 @@
 :root {
 	--secondary-color: #039be5;
-	--prime-color: rgba(38,50,56,0.9); /* for navbar and dropdown color */
+	/* for navbar and dropdown color */
+	--prime-color: rgba(33,33,33); 
+	/* --prime-color: #212121;  */
 }
 body{
 	background-color: #f5f5f5;
@@ -53,20 +55,34 @@ nav .sidenav li a i {
 
 
 /* *********** SLIDER ************ */
+main .slider .slides{
+	background-color: rgba(33,33,33,0.9);
+}
 main .slider .slides li .caption h3 {
-	color: #212121;
+	color: #bdbdbd;
 }
 
 main .slider .slides li .caption h5 {
 	color: #616161;
 }
+main .slider .slides li img{
+	filter: brightness(5%) !important;
+}
+
 
 /* *********** !SLIDER ************ */
 
 
 
 /* *********** TEMPLATES SECTION *********** */
-
+main .container .template_header,.snippet_header{
+	color: #424242;
+}
+main .container .my_hr{
+	width: 26%;
+	color:424242;
+	font-weight: 100 !important;
+}
 /* *********** !TEMPLATES SECTION *********** */
 
 

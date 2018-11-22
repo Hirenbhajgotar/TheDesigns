@@ -33,8 +33,8 @@
 
         <!-- ------ TEMPLATE SECTION ------ -->
         <div class="container">
-            <h2 class="center teal-text text-lighten-1">Templates</h2>
-            <hr class="teal-text text-lighten-1" style="width: 28%; font-weight: 100 !important">
+            <h2 class="center template_header">Templates</h2>
+            <hr class="my_hr" style="width: 28%;">
             <br>
             <div class="row">
                 <div class="col s12 m4 l4">
@@ -82,8 +82,8 @@
 
         <!-- SNIPPETS SECTION -->
         <div class="container">
-            <h2 class="center teal-text text-lighten-1">Snippets</h2>
-            <hr class="teal-text text-lighten-1" style="width: 26%; font-weight: 100 !important">
+            <h2 class="center snippet_header">Snippets</h2>
+            <hr class="my_hr">
             <br>
             <div class="row">
                 <div class="col s12 m4 l4">
