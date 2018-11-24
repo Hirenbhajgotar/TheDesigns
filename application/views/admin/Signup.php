@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include "login_signup_header.php"; ?>
     <main>
         <div class="container">
             <div class="row">
@@ -36,7 +36,7 @@
                                             <label for="confirm_password">CONFIRM PASSWORD</label>
                                         </div>
                                         
-                                        <button type="submit" class="btn waves-effect waves-light">Sign up</button>
+                                        <button type="submit" class="btn indigo lighten-1 waves-effect waves-light">Sign up</button>
                                         Have an account? <a href="<?= base_url('admin/login') ?>">Login</a>
                                     <?= form_close() ?>
                                 </div>

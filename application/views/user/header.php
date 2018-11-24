@@ -16,7 +16,7 @@
         <nav>
             <div class="nav-wrapper container">
                 <a href="#" class="sidenav-trigger right" data-target="mobile-demo"><i class="material-icons">menu</i></a>
-                <a href="<?= base_url('') ?>" class="brand-logo left">TheDesigns</a>
+                <a href="<?= base_url('') ?>" class="brand-logo left indigo-text text-lighten-1">TheDesigns</a>
                 <ul class="right hide-on-med-and-down"> 
                     <li><a href="">ABOUT US</a></li>
                     <!--DROPDOWN TRIGGER-->

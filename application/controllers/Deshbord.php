@@ -5,6 +5,12 @@ class Deshbord extends CI_Controller
     {
         $this->load->view('admin/deshbord');
     }
+
+    public function template()
+    {
+        $this->load->view('admin/template');
+    }
+
 }
 
 

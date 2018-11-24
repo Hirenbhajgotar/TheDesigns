@@ -14,6 +14,24 @@ header nav{
 /* **************** end navbar **************** */
 
 
+/* DESHBORD sidenav */
+header .sidenav li a{
+    font-size: 19px;
+    color: #8b91a0;
+}
+header .sidenav li .divider{
+    background-color: #8b91a0 !important;
+}
+nav .brand-logo{
+    margin-left: 25px;
+    color: #424242;
+}
+
+
+
+
+
+
 /* ************ signup form validation error ************ */
 .container .row .card .card-content #form #submit{
     margin-left: 43px !important;

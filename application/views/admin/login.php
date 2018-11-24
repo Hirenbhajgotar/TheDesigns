@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include "login_signup_header.php"; ?>
 
 <main>
     <div class="container">
@@ -23,7 +23,7 @@
                                         <label for="password">PASSWORD</label>
                                     </div>
                                     <?= form_error('password') ?>
-                                    <button type="submit" class="btn waves-effect waves-light">Login</button>
+                                    <button type="submit" class="btn indigo lighten-1 waves-effect waves-light">Login</button>
                                     New to theDesigns? <a href="<?= base_url('admin/signup') ?>">Create an account</a>
                                 <?= form_close() ?>
                             </div>

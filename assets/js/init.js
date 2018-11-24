@@ -13,4 +13,9 @@ $(document).ready(function () {
 		position: 'left',
 		html: '<span>Preview & Download</span>'
 	});
+	
+    $('.tabs').tabs({
+		// swipeable:true
+	});
+  
 });

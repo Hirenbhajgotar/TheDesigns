@@ -24,6 +24,8 @@ header nav .nav-wrapper .dropdown-content li a{
 
 
 /* *********** SIDENAV ********** */
+
+
 .sidenav li.active {
 	background-color: rgba(0, 0, 0, 0.07);
 }
@@ -66,7 +68,7 @@ main .slider .slides li .caption h5 {
 	color: #616161;
 }
 main .slider .slides li img{
-	filter: brightness(5%) !important;
+	filter: brightness(4%) !important;
 }
 
 

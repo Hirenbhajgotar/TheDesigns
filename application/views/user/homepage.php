@@ -124,7 +124,7 @@
                 </div>
             </div><!-- end row -->
             <div class="center">
-                <button id="snippet_btn" class="btn-large waves-effect waves-light">View More Snippets..</button>
+                <button id="snippet_btn" class="btn-large indigo lighten-1 waves-effect waves-light">View More Snippets..</button>
             </div>
             <br>
             <hr class="grey-text text-lighten-3">
