@@ -31,7 +31,20 @@ $config = [
             'label' => 'Password',
             'rules' => 'required|alpha_dash'
         ]
-    ]
+    ],
+
+    'dummy_rules' => [
+
+        [
+            'field' => 'template_header',
+            'label' => 'template header',
+            'rules' => 'required|alpha_numeric_spaces'
+        ],
+    ],
+
+
+
+    
 
 ]
 
