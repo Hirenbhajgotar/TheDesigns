@@ -49,40 +49,10 @@ class Deshbord extends CI_Controller
     public function template()
     {
         
-        // if ($this->input->post()) {
-        //     $files = $_FILES;
-        //     echo '<pre>';
-        //     print_r($files);
-        //     echo '</pre>';
-        //     exit;
-        // }
-        // else{
-        //     $this->load->view('admin/template');
-        // }
-
-        // $config = [
-        //     'upload_path' => './file_upload/',
-        //     'allowed_types' => 'png|jpg|jpeg|zip'
-        // ];
-        // $this->load->library('upload', $config);
-        // if (! $this->upload->do_upload('template')) {
-        //     $error_msg = $this->upload->display_errors();
-        //     $this->load->view('admin/template', compact($error_msg));
-        // }
-        // else{
-        //     // $files = $_FILES['template']['name'];
-        //     $cc = count($_FILES['template']['name']);
-        //     echo '<pre>';
-        //     print_r($cc);
-        //     echo '</pre>';
-        //     exit;
-
-        
-        $this->load->view('admin/template');
+       $this->load->model('Template_model');
+       $templates = $this->Template_model->template_list();
+        $this->load->view('admin/template',['templates'=>$templates]);
        
-        
-
-
 
     }
      
@@ -137,7 +107,8 @@ class Deshbord extends CI_Controller
 
             $temp_img = $this->template_image_upload->data();
             
-            $temp_img_path = $config['upload_path'].'/'.$temp_img['file_name'];
+            // $temp_img_path = $config['upload_path'].'/'.$temp_img['file_name'];
+            $temp_img_path = base_url("file_upload/".$temp_img[file_name]);
             // echo '<pre>';
             // print_r($temp_img_path);
             // echo '</pre>'.'<br>';
@@ -147,7 +118,8 @@ class Deshbord extends CI_Controller
 
             $temp_zip = $this->template_zip_upload->data();
 
-            $temp_zip_path = $config['upload_path'].'/'.$temp_zip['file_name'];
+            // $temp_zip_path = $config['upload_path'].'/'.$temp_zip['file_name'];
+            $temp_zip_path = base_url("zip_upload/".$temp_zip['file_name']);
             // echo '<pre>';
             // print_r($temp_zip_path);
             // echo '</pre>';
