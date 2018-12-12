@@ -27,6 +27,19 @@ class Template_model extends CI_Model
 
 
 
+    public function deletTemplate($id, $template_image, $template_zip)
+    {
+        $data = $this->db->delete('template',['id'=>$id]);
+        unlink(FCPATH."file_upload/".$template_image);
+        unlink(FCPATH."zip_upload/".$template_zip);
+        return $data;
+    }
+
+
+
+
+
+
 }
 
 

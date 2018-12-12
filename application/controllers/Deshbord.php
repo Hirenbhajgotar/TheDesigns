@@ -64,14 +64,14 @@ class Deshbord extends CI_Controller
     }
 
     
-
+// add template
     public function add_template_data()
     {
         // template image upload
         $config = [
             'upload_path' => './file_upload',
             'allowed_types' => 'jpg|png|jpeg',
-            'max_size'=>'0',
+            'max_size'=>'20000',
             'min_size'=>'0',
             'remove_space'=>TRUE
         ];
@@ -84,8 +84,8 @@ class Deshbord extends CI_Controller
         // template zip upload
         $config = [
             'upload_path' => './zip_upload',
-            'allowed_types' => 'jpg|png|jpeg',
-            'max_size'=>'0',
+            'allowed_types' => 'zip',
+            'max_size'=>'20000',
             'min_size'=>'0',
             'remove_space'=>TRUE
         ];
@@ -98,58 +98,37 @@ class Deshbord extends CI_Controller
         if ( $this->form_validation->run('dummy_rules') && $template_img && $template_zip) {
             
             $post = $this->input->post();
-            // echo '<pre>';
-            // print_r($post);
-            // echo '</pre>'.'<br>';
-            // exit;
-
-
-
+           
             $temp_img = $this->template_image_upload->data();
             
             // $temp_img_path = $config['upload_path'].'/'.$temp_img['file_name'];
-            $temp_img_path = base_url("file_upload/".$temp_img[file_name]);
-            // echo '<pre>';
-            // print_r($temp_img_path);
-            // echo '</pre>'.'<br>';
-            // exit;
-
-
+            $temp_img_path = $temp_img['file_name'];
+            // $temp_img_path = base_url("file_upload/".$temp_img[file_name]);
+           
 
             $temp_zip = $this->template_zip_upload->data();
 
             // $temp_zip_path = $config['upload_path'].'/'.$temp_zip['file_name'];
-            $temp_zip_path = base_url("zip_upload/".$temp_zip['file_name']);
-            // echo '<pre>';
-            // print_r($temp_zip_path);
-            // echo '</pre>';
-            // exit;
-
-
+            $temp_zip_path = $temp_zip['file_name'];
+            // $temp_zip_path = base_url("zip_upload/".$temp_zip['file_name']);
+           
             $post['template_image'] = $temp_img_path;
             $post['template_zip'] = $temp_zip_path;
 
-            // echo '<pre>';
-            // print_r($post);
-            // echo '</pre>';
-            // exit;
 
 
             $this->load->model('Template_model');
             if($this->Template_model->add_template($post)){
                 // echo "template added sucessfully";
-                $this->session->set_flashdata('success','data successfully inserted into database');
+                $this->session->set_flashdata('success','DATA SUCCESSFULLY INSERTED');
                 return redirect('Deshbord/template');
             }
             else{
                 // echo "template cant inserted! try again";
-                $this->session->set_flashdata('error','data cant successfully inserted into database');
+                $this->session->set_flashdata('error','! CANT INSERTED DATA PLEASE TRY AGAIN');
                 return redirect('Deshbord/template');
             }
-            
- 
-
-
+        
         }
         else{
             // [
@@ -162,6 +141,29 @@ class Deshbord extends CI_Controller
             $this->load->view('admin/template', compact('err_zip', 'err_img'));
         }
     }
+
+
+// delete template from database
+    public function delet_template()
+    {
+        $id = $this->input->post('id');
+        $template_image = $this->input->post('template_image');
+        $template_zip = $this->input->post('template_zip');
+        
+        $this->load->model('Template_model');
+        if($this->Template_model->deletTemplate($id, $template_image, $template_zip)){
+            $this->session->set_flashdata('success','DELETE TEPMLATE SUCCESSFULLY');
+        }
+        else{
+            $this->session->set_flashdata('error','! CANT DELETE PLEASE TRY AGAIN');
+        }
+        return redirect('Deshbord/template');
+    }
+
+
+
+
+
 
 }
 

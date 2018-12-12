@@ -25,13 +25,24 @@
                             <tr>
                                 <td>1</td>
                                 <td><p class="truncate"><?= $data->template_header; ?></p></td>
-                                <?php if(! is_null($data->template_image)){ ?>
-                                    <td><img style="width:150px;" src="<?= $data->template_image ?>" alt="template image"></td>
+                                
+                                <?php if(! is_null($data->template_image)){?>
+                                    <td><img style="width:150px;" src="<?php echo base_url('file_upload/'.$data->template_image) ?>" alt="template image"></td>
                                 <?php }else{ echo "not found";} ?>
-                                <!-- <td><button class="btn  blue darken-2"><i class="material-icons">pageview</i></button></td> -->
+                                
                                 <td><button class="btn  blue darken-2"><i class="material-icons">visibility</i></button></td>
                                 <td><button class="btn yellow darken-3"><i class="material-icons">edit</i></button></td>
-                                <td><button class="btn red lighten-1"><i class="material-icons">delete</i></button></td>
+                                <!-- <td>
+                                    <?= anchor("Deshbord/delet_template/{$data->id}","<i class='material-icons'>delete</i>",['class'=>'btn red lighten-1']) ?>
+                                </td> -->
+                                <?php
+                                    echo form_open('Deshbord/delet_template');
+                                    echo form_hidden('id',$data->id);
+                                    echo form_hidden('template_image',$data->template_image);
+                                    echo form_hidden('template_zip',$data->template_zip);
+                                ?>
+                                    <td><button type="submit" class="btn red lighten-1"><i class="material-icons">delete</i></button></td>
+                                <?= form_close() ?>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
