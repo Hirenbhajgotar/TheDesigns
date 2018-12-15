@@ -64,7 +64,7 @@ class Deshbord extends CI_Controller
     }
 
     
-// add template
+    // add template
     public function add_template_data()
     {
         // template image upload
@@ -98,6 +98,10 @@ class Deshbord extends CI_Controller
         if ( $this->form_validation->run('dummy_rules') && $template_img && $template_zip) {
             
             $post = $this->input->post();
+            // echo '<pre>';
+            // print_r($post);
+            // echo '</pre>';
+            // exit;
            
             $temp_img = $this->template_image_upload->data();
             
@@ -125,7 +129,7 @@ class Deshbord extends CI_Controller
             }
             else{
                 // echo "template cant inserted! try again";
-                $this->session->set_flashdata('error','! CANT INSERTED DATA PLEASE TRY AGAIN');
+                $this->session->set_flashdata('error','! CANT INSERTED PLEASE TRY AGAIN');
                 return redirect('Deshbord/template');
             }
         
@@ -160,7 +164,101 @@ class Deshbord extends CI_Controller
         return redirect('Deshbord/template');
     }
 
+   
+    // fetch template row 
+    public function update_template($temp_id)
+    {
+       
+        $this->load->model('Template_model');
+        $res = $this->Template_model->find_template($temp_id);
+        // echo '<pre>';
+        // print_r($rr);
+        // echo '</pre>';
+        // exit;
+        $this->load->view('admin/update_template',['templates_data'=>$res]);
+        
+    }
 
+
+    // update template
+    public function update_temp_data($id)
+    {
+
+        // template image configer data
+        $config = [
+            'upload_path' => './file_upload',
+            'allowed_types' => 'jpg|png|jpeg',
+            'max_size'=>'20000',
+            'min_size'=>'0',
+            'remove_space'=>TRUE
+        ];
+
+        $this->load->library('upload', $config, 'template_image_update');
+        $this->template_image_update->initialize($config);
+        $template_img = $this->template_image_update->do_upload('template_image');
+
+
+        // template zip configer data
+        $config = [
+            'upload_path' => './zip_upload',
+            'allowed_types' => 'zip',
+            'max_size'=>'20000',
+            'min_size'=>'0',
+            'remove_space'=>TRUE
+        ];
+
+        $this->load->library('upload', $config, 'template_zip_update');
+        $this->template_zip_update->initialize($config);
+        $template_zip = $this->template_zip_update->do_upload('template_zip');
+
+        
+
+        if($this->form_validation->run('dummy_rules') && $template_img && $template_zip){
+            
+            $this->load->model('Template_model');
+            $temp = $this->Template_model->find_template($id);
+            // remove the old image and zip file form folder
+            if($temp->template_image && file_exists("file_upload/".$temp->template_image) && $temp->template_zip && file_exists("zip_upload/".$temp->template_zip)){
+                unlink(FCPATH.'file_upload/'.$temp->template_image);
+                unlink(FCPATH.'zip_upload/'.$temp->template_zip);
+
+            }
+
+            $post     = $this->input->post();
+            $temp_img = $this->template_image_update->data();
+            $temp_zip = $this->template_zip_update->data();
+
+            // image path
+            $temp_img_path = $temp_img['file_name'];
+
+            // zip path
+            $temp_zip_path = $temp_zip['file_name'];
+
+            $post['template_image'] = $temp_img_path;
+            $post['template_zip']   = $temp_zip_path;
+            
+            
+            $this->load->model('Template_model');
+            if($this->Template_model->template_update($id, $post)){
+                $this->session->set_flashdata('success', 'UPDATE TEMPLATE SUCCESSFULLY');
+            }
+            else{
+                $this->session->set_flashdata('error', '! CATN UPDATE PLEASE TRY AGAIN');
+            }
+            return redirect('Deshbord/template');
+
+        }
+        else{
+            $err_img = $this->template_image_update->display_errors();
+            $err_zip = $this->template_zip_update->display_errors();
+            
+            $this->load->view('admin/update_template', compact('err_img', 'err_zip'));
+        
+        }
+        
+
+
+    }
 
 
 

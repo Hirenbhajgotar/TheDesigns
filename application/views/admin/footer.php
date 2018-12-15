@@ -6,6 +6,7 @@
     <script src="<?= base_url('/assets/js/dist/parsley.min.js') ?>"></script>
     <script>
         $('#form').parsley();
+        $('#update_form').parsley();
     </script>
 
 </body>

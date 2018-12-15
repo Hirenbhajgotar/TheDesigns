@@ -43,29 +43,71 @@ nav .brand-logo{
     box-shadow: 0 1px 0 0 #B94A48 !important;
     color: #B94A48;
 }
-.container .section .card .input-field .parsley-errors-list .parsley-required{
+.container .section .card .input-field .parsley-errors-list .parsley-required,
+/* update template form */
+#update_temp .card .card-content .input-field .parsley-errors-list .parsley-required,
+/* add template form */
+#add_temp .modal .modal-content .input-field .parsley-errors-list .parsley-required {
     color: #B94A48;
 }
+
+
 /* for filevalidation css*/
 .container .modal .modal-content .section .input-field .file-path-wrapper .parsley-errors-list .parsley-required,
 /* add template validation css */
-.container .modal .modal-content .input-field .parsley-errors-list .parsley-pattern {
+.container .modal .modal-content .input-field .parsley-errors-list .parsley-pattern,
+/* template update form */
+#update_temp .card .card-content .input-field .parsley-errors-list .parsley-pattern,
+/* template add form */
+#add_temp .modal .modal-content .input-field .parsley-errors-list .parsley-pattern {
     color: #B94A48;
 }
-.container .modal .modal-content .section .input-field .file-path-wrapper .parsley-error {
+
+
+.container .modal .modal-content .section .input-field .file-path-wrapper .parsley-error,
+/* template update form */
+#update_temp .card .card-content .input-field .file-path-wrapper .parsley-error,
+#update_temp .card .card-content .input-field .parsley-error,
+/* template add form */
+#add_temp .modal .modal-content .input-field .file-path-wrapper .parsley-error,
+#add_temp .modal .modal-content .input-field .parsley-error {
     color: #B94A48;
     border-bottom: 1px solid #B94A48 !important;
     box-shadow: 0 1px 0 0 #B94A48 !important;
 }
-
-.container .section .card .input-field .prefix{
-    color: #607d8b;
+/* update template form */
+#update_temp .card .card-content #head_input .parsley-errors-list .parsley-required,
+#update_temp .card .card-content #head_input .parsley-errors-list .parsley-pattern,
+/* add template form */
+#add_temp .modal .modal-content #head_temp .parsley-errors-list .parsley-required,
+#add_temp .modal .modal-content #head_temp .parsley-errors-list .parsley-pattern {
+    margin-left: 40px;
 }
-.container .section .card .input-field .prefix.active{
-    color: #455a64;
+
+
+.container .section .card .input-field .prefix,
+/* template update form */
+#update_temp .card .card-content .input-field .prefix,
+#update_temp .card .card-content .input-field i,
+/* add template form */
+#add_temp .modal .modal-content .input-field .prefix,
+#add_temp .modal .modal-content .input-field i{
+	/* update template form */
+    color: #607d8b !important;
+}
+.container .section .card .input-field .prefix.active,
+#update_temp .card .card-content .input-field .prefix.active,
+#update_temp .card .card-content .input-field i{/* update template form */
+    color: #455a64 !important;
 }
 .container .card .card-content .section form .btn{
     margin-left: 43px;
+}
+/* update template form */
+#update_temp .card .card-content #head_input,
+/* add template form */
+#add_temp .modal .modal-content #head_temp {
+    margin-left: 16px;
 }
 
 /* ************ end signup form validation error ************ */
