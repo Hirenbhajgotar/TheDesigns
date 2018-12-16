@@ -67,6 +67,7 @@ class Deshbord extends CI_Controller
     // add template
     public function add_template_data()
     {
+        
         // template image upload
         $config = [
             'upload_path' => './file_upload',
@@ -98,10 +99,14 @@ class Deshbord extends CI_Controller
         if ( $this->form_validation->run('dummy_rules') && $template_img && $template_zip) {
             
             $post = $this->input->post();
-            // echo '<pre>';
-            // print_r($post);
-            // echo '</pre>';
-            // exit;
+            // insert date and time into database
+            date_default_timezone_set('Asia/Kolkata'); // Defined City For Timezone
+            $currentDate =time();
+            $datestring = '%d-%m-%Y - %h:%i %a';
+            $time = time();
+            $better_date = mdate($datestring, $time);
+            $post['date'] = $better_date;
+            
            
             $temp_img = $this->template_image_upload->data();
             

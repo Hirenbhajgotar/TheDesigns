@@ -15,6 +15,7 @@
                                 <th>Sr No.</th>
                                 <th>Header</th>
                                 <th>Template</th>
+                                <th>Upload Date</th>
                                 <th>Preview</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -35,8 +36,8 @@
                                     <?php if(! is_null($data->template_image)){?>
                                         <td><img style="width:150px;" src="<?php echo base_url('file_upload/'.$data->template_image) ?>" alt="template image"></td>
                                     <?php }else{ echo "not found";} ?>
-                                    
-                                    <td><button class="btn  blue darken-2"><i class="material-icons">visibility</i></button></td>
+                                    <td><?= $data->date ?></td>
+                                    <td><button class="btn  blue darken-2"><i class="far fa-eye"></i></button></td>
                                     <td><?php echo anchor("Deshbord/update_template/{$data->id}","<i class='material-icons'>edit</i>",['class'=>'btn yellow darken-3']); ?></td>
                                     <?php
                                         echo form_open('Deshbord/delet_template');
