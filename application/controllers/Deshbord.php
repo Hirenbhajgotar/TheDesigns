@@ -16,51 +16,18 @@ class Deshbord extends CI_Controller
     }
 
 
-    // public function template()
-    // {
-    //     $config = [
-    //         'upload_path' => './file_upload/',
-    //         'allowed_types' => 'png|jpg|jpeg|zip'
-    //     ];
-    //     $this->load->library('upload', $config);
-    //     $this->upload->initialize($config);
-        
-    //     if($this->upload->do_upload('template')){
-    //         $data = $this->upload->data();
-    //         // echo '<pre>';
-    //         // print_r($data);
-    //         // echo '</pre>';
-    //         // exit;
-
-
-    //         $files = $_FILES;
-    //         echo '<pre>';
-    //         print_r($files);
-    //         echo '</pre>';
-    //         exit;
-    //     }
-    //     else{
-    //         $error_msg = $this->upload->display_errors();
-
-    //         $this->load->view('admin/template', compact('error_msg'));
-    //     }
-    // }
-
+    
     public function template()
     {
-        
-       $this->load->model('Template_model');
-       $templates = $this->Template_model->template_list();
+        $this->load->model('Template_model');
+        $templates = $this->Template_model->template_list();
         $this->load->view('admin/template',['templates'=>$templates]);
-       
-
     }
      
+
     public function add_template()
     {
-       
-        $this->load->view('admin/add_template');
-
+       $this->load->view('admin/add_template');
     }
 
     
@@ -85,6 +52,7 @@ class Deshbord extends CI_Controller
         // template zip upload
         $config = [
             'upload_path' => './zip_upload',
+            // 'upload_path' => './archive_zip',
             'allowed_types' => 'zip',
             'max_size'=>'20000',
             'min_size'=>'0',
@@ -102,10 +70,10 @@ class Deshbord extends CI_Controller
             // insert date and time into database
             date_default_timezone_set('Asia/Kolkata'); // Defined City For Timezone
             $currentDate =time();
-            $datestring = '%d-%m-%Y - %h:%i %a';
+            $datestring = '%d/%M/%Y %h:%i %a';
             $time = time();
             $better_date = mdate($datestring, $time);
-            $post['date'] = $better_date;
+            $post['upload_at'] = $better_date;
             
            
             $temp_img = $this->template_image_upload->data();
@@ -116,11 +84,23 @@ class Deshbord extends CI_Controller
            
 
             $temp_zip = $this->template_zip_upload->data();
-
+            
             // $temp_zip_path = $config['upload_path'].'/'.$temp_zip['file_name'];
             $temp_zip_path = $temp_zip['file_name'];
+            $temp_zip_full_path = $temp_zip['full_path'];
             // $temp_zip_path = base_url("zip_upload/".$temp_zip['file_name']);
-           
+            
+            // extract zip file
+            $zip_msg = "";
+            $zip = new ZipArchive;
+            if($zip->open($temp_zip_full_path) === TRUE){
+            $zip->extractTo(FCPATH.'zip_upload/');
+            $zip->close();
+            }
+            else{
+                $zip_msg = $this->template_zip_upload->display_errors();
+            }
+
             $post['template_image'] = $temp_img_path;
             $post['template_zip'] = $temp_zip_path;
 
@@ -129,7 +109,7 @@ class Deshbord extends CI_Controller
             $this->load->model('Template_model');
             if($this->Template_model->add_template($post)){
                 // echo "template added sucessfully";
-                $this->session->set_flashdata('success','DATA SUCCESSFULLY INSERTED');
+                $this->session->set_flashdata('success','TEMPLATE INSERTED');
                 return redirect('Deshbord/template');
             }
             else{
@@ -147,7 +127,7 @@ class Deshbord extends CI_Controller
             $err_zip = $this->template_zip_upload->display_errors();
             $err_img = $this->template_image_upload->display_errors();
             
-            $this->load->view('admin/template', compact('err_zip', 'err_img'));
+            $this->load->view('admin/template', compact('err_zip', 'err_img', 'zip_msg'));
         }
     }
 
@@ -159,13 +139,38 @@ class Deshbord extends CI_Controller
         $template_image = $this->input->post('template_image');
         $template_zip = $this->input->post('template_zip');
         
+        // get row of data accourding to $id
         $this->load->model('Template_model');
-        if($this->Template_model->deletTemplate($id, $template_image, $template_zip)){
-            $this->session->set_flashdata('success','DELETE TEPMLATE SUCCESSFULLY');
+        $del_data = $this->Template_model->find_template($id);
+
+        // remove extension from zip file
+        $ext = basename($del_data->template_zip, '.zip');
+        
+        if($del_data->template_zip && is_dir("zip_upload/".$ext)){
+           
+            // remove folder in 'zip_upload' directory 
+            delete_files("zip_upload/".$ext, true);
+            rmdir("zip_upload/".$ext);
+           
+            // remove zip file from folder
+            unlink(FCPATH."file_upload/".$template_image);
+            unlink(FCPATH."zip_upload/".$template_zip);
+
+            // delete data from database
+            $this->load->model('Template_model');
+            if($this->Template_model->deletTemplate($id, $template_image, $template_zip)){
+                
+                $this->session->set_flashdata('success','TEPMLATE DELETED');
+            }
+            else{
+                $this->session->set_flashdata('error','! CANT DELETE PLEASE TRY AGAIN');
+            }
+            
         }
         else{
             $this->session->set_flashdata('error','! CANT DELETE PLEASE TRY AGAIN');
         }
+        
         return redirect('Deshbord/template');
     }
 
@@ -176,10 +181,7 @@ class Deshbord extends CI_Controller
        
         $this->load->model('Template_model');
         $res = $this->Template_model->find_template($temp_id);
-        // echo '<pre>';
-        // print_r($rr);
-        // echo '</pre>';
-        // exit;
+        
         $this->load->view('admin/update_template',['templates_data'=>$res]);
         
     }
@@ -222,30 +224,67 @@ class Deshbord extends CI_Controller
             
             $this->load->model('Template_model');
             $temp = $this->Template_model->find_template($id);
+
+            // remove extension from zip file
+            $ext = basename($temp->template_zip, '.zip');
+            $zip_msg = '';
             // remove the old image and zip file form folder
-            if($temp->template_image && file_exists("file_upload/".$temp->template_image) && $temp->template_zip && file_exists("zip_upload/".$temp->template_zip)){
+            if($temp->template_image && file_exists("file_upload/".$temp->template_image) && $temp->template_zip && file_exists("zip_upload/".$temp->template_zip) && is_dir("zip_upload/".$ext)){
+                
+                // remove folder from 'zip_upload' directory before update
+                delete_files("zip_upload/".$ext, true);
+                rmdir("zip_upload/".$ext);
+
+                // remove image and zip file before update
                 unlink(FCPATH.'file_upload/'.$temp->template_image);
                 unlink(FCPATH.'zip_upload/'.$temp->template_zip);
 
-            }
 
-            $post     = $this->input->post();
-            $temp_img = $this->template_image_update->data();
-            $temp_zip = $this->template_zip_update->data();
+                $post     = $this->input->post();
+                $temp_img = $this->template_image_update->data();
+                $temp_zip = $this->template_zip_update->data();
 
-            // image path
-            $temp_img_path = $temp_img['file_name'];
-
-            // zip path
-            $temp_zip_path = $temp_zip['file_name'];
-
-            $post['template_image'] = $temp_img_path;
-            $post['template_zip']   = $temp_zip_path;
+                // insert date and time into database
+                date_default_timezone_set('Asia/Kolkata'); // Defined City For Timezone
+                $currentDate =time();
+                $datestring = '%d/%M/%Y %h:%i %a';
+                $time = time();
+                $better_date = mdate($datestring, $time);
+                $post['update_at'] = $better_date;
             
-            
-            $this->load->model('Template_model');
-            if($this->Template_model->template_update($id, $post)){
-                $this->session->set_flashdata('success', 'UPDATE TEMPLATE SUCCESSFULLY');
+
+                // image path
+                $temp_img_path = $temp_img['file_name'];
+
+                // zip path
+                $temp_zip_path = $temp_zip['file_name'];
+
+                // zip full path
+                $temp_zip_fill_path = $temp_zip['full_path'];
+
+                // extract zip file
+                
+                $zip = new ZipArchive;
+                if($zip->open($temp_zip_fill_path) === TRUE){
+                    $zip->extractTo(FCPATH.'zip_upload/');
+                    $zip->close();
+                }
+                else{
+                    $zip_msg = $this->template_zip_update->display_errors();
+                }
+
+                $post['template_image'] = $temp_img_path;
+                $post['template_zip']   = $temp_zip_path;
+                
+                
+                $this->load->model('Template_model');
+                if($this->Template_model->template_update($id, $post)){
+                    $this->session->set_flashdata('success', 'TEMPLATE UPDATED');
+                }
+                else{
+                    $this->session->set_flashdata('error', '! CANT UPDATE PLEASE TRY AGAIN');
+                    return redirect('Deshbord/template');
+                }
             }
             else{
                 $this->session->set_flashdata('error', '! CATN UPDATE PLEASE TRY AGAIN');
@@ -257,14 +296,29 @@ class Deshbord extends CI_Controller
             $err_img = $this->template_image_update->display_errors();
             $err_zip = $this->template_zip_update->display_errors();
             
-            $this->load->view('admin/update_template', compact('err_img', 'err_zip'));
+            $this->load->view('admin/update_template', compact('err_img', 'err_zip', 'zip_msg'));
         
         }
         
-
-
     }
 
+
+    // preview template
+    public function archive_zip($id)
+    {
+        $this->load->model('Template_model');
+        $zip_file = $this->Template_model->find_template($id);
+        
+        if(file_exists("zip_upload/".$zip_file->template_zip)){
+            
+            // remove extension
+            $file = basename($zip_file->template_zip, ".zip");
+            
+            return redirect(base_url("zip_upload/".$file."/index.html"));
+        }
+        
+        
+    }
 
 
 

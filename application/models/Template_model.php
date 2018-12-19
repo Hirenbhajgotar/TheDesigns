@@ -29,9 +29,8 @@ class Template_model extends CI_Model
 
     public function deletTemplate($id, $template_image, $template_zip)
     {
+      
         $data = $this->db->delete('template',['id'=>$id]);
-        unlink(FCPATH."file_upload/".$template_image);
-        unlink(FCPATH."zip_upload/".$template_zip);
         return $data;
     }
 
@@ -52,13 +51,9 @@ class Template_model extends CI_Model
     // update template data
     public function template_update($id, $data)
     {
-        // echo '<pre>';
-        // print_r($data);
-        // echo '</pre>';
-        // exit;
-        
         return $this->db->where('id', $id)
                         ->update('template', $data);
+                        
     }
     
 

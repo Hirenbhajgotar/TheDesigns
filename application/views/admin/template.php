@@ -9,13 +9,14 @@
                     <a data-target="template_modal" href="" class="btn waves-effect waves-light indigo lighten-1 modal-trigger">Add template</a>
                 </div>
                 <div class="section">
-                    <table class="">
+                    <table id="template_table">
                         <thead>
                             <tr>
-                                <th>Sr No.</th>
+                                <th>No.</th>
                                 <th>Header</th>
                                 <th>Template</th>
-                                <th>Upload Date</th>
+                                <th>Upload at</th>
+                                <th>Update at</th>
                                 <th>Preview</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -34,10 +35,13 @@
                                     <td><p class="truncate"><?= $data->template_header; ?></p></td>
                                     
                                     <?php if(! is_null($data->template_image)){?>
-                                        <td><img style="width:150px;" src="<?php echo base_url('file_upload/'.$data->template_image) ?>" alt="template image"></td>
+                                        <td><img class="materialboxed" style="width:110px;" src="<?php echo base_url('file_upload/'.$data->template_image) ?>" alt="template image"></td>
                                     <?php }else{ echo "not found";} ?>
-                                    <td><?= $data->date ?></td>
-                                    <td><button class="btn  blue darken-2"><i class="far fa-eye"></i></button></td>
+                                    <td><?= $data->upload_at ?></td>
+                                    <td><?= $data->update_at ?></td>
+                                    <!-- <td><a href="Deshbord/<?php $data->id ?>" class="btn  blue darken-2"><i class="far fa-eye"></i></a></td> -->
+                                    <!-- <?php $zip = base_url('zip_upload/'.$data->template_zip); ?> -->
+                                    <td><?php echo anchor("Deshbord/archive_zip/{$data->id}","<i class='far fa-eye'></i>", ['class'=>'btn blue darken-2','terget'=>'_blank']) ?></td>
                                     <td><?php echo anchor("Deshbord/update_template/{$data->id}","<i class='material-icons'>edit</i>",['class'=>'btn yellow darken-3']); ?></td>
                                     <?php
                                         echo form_open('Deshbord/delet_template');
@@ -55,7 +59,7 @@
                                     <blockquote>No data available !</blockquote>
                                 </td>
                             </tr>
-                        <?php endif; ?>
+                            <?php endif; ?>
                         <?php endif; ?>
 
                         </tbody>
@@ -161,6 +165,19 @@ if(isset($err_zip)){
         <script>
             $(document).ready(function(){
                 M.toast({html: '$error_zip', classes:'deep-orange-text text-accent-2'});
+            });
+        </script>
+    ";
+
+}
+
+
+if(isset($zip_msg)){
+    $error_zip_msg = $zip_msg;
+    echo "
+        <script>
+            $(document).ready(function(){
+                M.toast({html: '$error_zip_msg', classes:'deep-orange-text text-accent-2'});
             });
         </script>
     ";

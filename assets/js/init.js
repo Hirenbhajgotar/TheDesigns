@@ -18,5 +18,6 @@ $(document).ready(function () {
 		// swipeable:true
 	});
 	$('.modal').modal();
+	$('.materialboxed').materialbox();
   
 });

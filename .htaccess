@@ -4,7 +4,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
 
 
-# for uploading 20MB file size
+# for maximum input time in seconds
+php_value max_input_time 300 
+php_value max_execution_time 200
+
+# for uploading up to 20MB file size
 php_value upload_max_filesize 20M
 php_value post_max_size 20M
 php_value memory_limit 128M
