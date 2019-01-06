@@ -6,7 +6,7 @@
                 <li>
                     <img src="<?= base_url('/assets/images/book-computer-design-326424.jpg') ?>" class="responsive-img" alt="">
                     <div class="caption center-align">
-                        <h3>TheDesigns</h3>
+                        <h3>THE DESIGNS</h3>
                         <h5>Use our templates and snippets for any project, personal or commercial. 
                             All of the item your see are built in the Bootstrap or MaterializeCSS.
                         </h5>
@@ -33,47 +33,34 @@
 
         <!-- ------ TEMPLATE SECTION ------ -->
         <div class="container">
-            <h2 class="center template_header">Templates</h2>
-            <hr class="my_hr" style="width: 28%;">
+            <h2 class="center template_header" data-aos="fade-down">Templates</h2>
+            <hr class="my_hr" id="hr1" style="width: 28%;">
             <br>
             <div class="row">
+                <?php foreach($template_data as $data): ?>
                 <div class="col s12 m4 l4">
                     <div class="card">
                         <div class="card-image">
-                            <img src="<?= base_url('/assets/images/ai-close-up-code-160107.jpg') ?>" class="responsive-img" alt="">
+                            <!-- <a href="Templates/"> -->
+                            <?php 
+                                $img = array(
+                                    'src'=>base_url('file_upload/'.$data->template_image),
+                                    'class'=>'responsive-img',
+                                    
+                                );
+                            ?>
+                            <?= anchor("Templates/templateView/{$data->id}", img($img)) ?>
+                                <!-- <img src="<?= base_url('file_upload/'.$data->template_image) ?>" class="responsive-img" alt=""> -->
+                            <!-- </a> -->
+                            <a href="Templates" class="btn-floating halfway-fab waves-effect waves-light btn-large red tooltipped"><i class="material-icons">chevron_right</i></a>
                             
-                            <button class="btn-floating halfway-fab waves-effect waves-light btn-large red tooltipped"><i class="material-icons">chevron_right</i></button>
                         </div>
                         <div class="card-content">
-                            <span class="card-title">Template 1</span>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus dolorem corrupti accusamus maiores ab excepturi aliquid nesciunt expedita dolorum mollitia?</p>
+                            <span class="card-title"><?= $data->template_header ?></span>
                         </div>
                     </div>
                 </div>
-                <div class="col s12 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="<?= base_url('/assets/images/dan-burton-682986-unsplash.jpg') ?>" class="responsive-img" alt="">
-                            <button class="btn-floating halfway-fab waves-effect waves-light btn-large red tooltipped"><i class="material-icons">chevron_right</i></button>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title">Template 2</span>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis officiis sunt incidunt porro repellendus impedit nostrum nulla sint quasi quis.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="<?= base_url('/assets/images/pexels-photo.jpg') ?>" class="responsive-img" alt="">
-                            <button class="btn-floating halfway-fab waves-effect waves-light btn-large red tooltipped"><i class="material-icons">chevron_right</i></button>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title">Template 3</span>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptate laborum non omnis neque corporis magnam inventore laboriosam in totam.</p>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div><!--end row-->
             <hr class="grey-text text-lighten-3">
         </div>
@@ -82,8 +69,8 @@
 
         <!-- SNIPPETS SECTION -->
         <div class="container">
-            <h2 class="center snippet_header">Snippets</h2>
-            <hr class="my_hr">
+            <h2 class="center snippet_header"><span>S</span>nippets</h2>
+            <hr class="my_hr" id="hr2">
             <br>
             <div class="row">
                 <div class="col s12 m4 l4">

@@ -9,7 +9,7 @@
                     <a data-target="template_modal" href="" class="btn waves-effect waves-light indigo lighten-1 modal-trigger">Add template</a>
                 </div>
                 <div class="section">
-                    <table id="template_table">
+                    <table id="template_table" class="highlight responsive-table">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -32,10 +32,10 @@
                             <?php foreach ($templates as $data): ?>
                                 <tr>
                                     <td><?= ++$count ?></td>
-                                    <td><p class="truncate"><?= $data->template_header; ?></p></td>
+                                    <td><?= $data->template_header; ?></td>
                                     
                                     <?php if(! is_null($data->template_image)){?>
-                                        <td><img class="materialboxed" style="width:110px;" src="<?php echo base_url('file_upload/'.$data->template_image) ?>" alt="template image"></td>
+                                        <td><img class="materialboxed responsive-img" style="width:120px"  src="<?php echo base_url('file_upload/'.$data->template_image) ?>" alt="template image"></td>
                                     <?php }else{ echo "not found";} ?>
                                     <td><?= $data->upload_at ?></td>
                                     <td><?= $data->update_at ?></td>

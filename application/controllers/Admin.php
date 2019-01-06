@@ -13,7 +13,8 @@ class Admin extends CI_Controller
             $this->load->model('Signup_login_model');
             if($this->Signup_login_model->signup($post)){
                 // echo "okk";
-                return redirect('Admin/Signup');
+                // return redirect('Admin/Signup');
+                return redirect('Deshbord');
             }
             else{
                 // echo "false";

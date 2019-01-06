@@ -15,9 +15,23 @@ header nav{
 
 
 /* DESHBORD sidenav */
-header .sidenav li a{
+header .sidenav .center .section a{ /* logo */
+    font-size:28px;
+    color: #5c6bc0 !important;
+}
+header .sidenav .center .section a span{ /* logo */
+    color:#F05F40 !important;
+}
+header .sidenav li a{ /* sidebar links */
     font-size: 19px;
     color: #8b91a0;
+}
+header .sidenav li a:hover{ /* sidebar links */
+    color: #F05F40 !important;
+}
+header .sidenav li #logout_btn{ /* logout button */
+    background-color:#F05F40 !important;
+    color:white !important;
 }
 header .sidenav li .divider{
     background-color: #8b91a0 !important;
@@ -111,3 +125,4 @@ nav .brand-logo{
 }
 
 /* ************ end signup form validation error ************ */
+

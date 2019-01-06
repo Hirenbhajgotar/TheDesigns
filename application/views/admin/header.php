@@ -45,7 +45,7 @@
                         <!-- <img src="<?= base_url('/assets/images/hal-gatewood-613602-unsplash.jpg') ?>" class="circle" alt=""> -->
                         <h5 class="center">
                             <div class="section">
-                                <a href="<?= base_url('deshbord') ?>" style="font-size:28px" class="indigo-text text-lighten-1">TheDesigns</a>
+                                <a href="<?= base_url('deshbord') ?>" style="" class=""><span style="">T H E</span> D E S I G N S</a>
                             </div>    
                             <br><br>
                         </h5>
@@ -56,10 +56,10 @@
             <li><a href="<?= base_url('deshbord') ?>" class="waves-effect waves-light">Home</a></li>
             <li><a href="<?= base_url('Deshbord/template') ?>" class="waves-effect waves-light">Template</a></li>
             <li><a href="<?= base_url() ?>" class="waves-effect waves-light">Snippet</a></li>
-            <li><a href="<?= base_url() ?>" class="waves-effect waves-light">feedback</a></li>
+            <li><a href="<?= base_url() ?>" class="waves-effect waves-light">Feedback</a></li>
             <li><div class="divider"></div></li>
             <?php if($this->session->userdata('id')): ?>
-                <li><a href="<?= base_url('admin/logout') ?>" class="btn indigo lighten-1 waves-effect waves-light">Logout</a></li>
+                <li><a href="<?= base_url('admin/logout') ?>" id="logout_btn" style="" class="btn waves-effect waves-light">Logout</a></li>
             <?php endif; ?>
         </ul>
     </header>

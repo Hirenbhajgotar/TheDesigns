@@ -38,7 +38,7 @@ class Template_model extends CI_Model
     // fetch whole row accourding to perticuler 'id' for update template
     public function find_template($id)
     {
-        $q = $this->db->select(['template_header', 'template_image', 'template_zip', 'id'])
+        $q = $this->db->select(['template_header', 'template_image', 'template_zip', 'id', 'upload_at', 'update_at'])
                       ->where('id',$id)
                       ->get('template');
                       return $q->row();
@@ -56,6 +56,19 @@ class Template_model extends CI_Model
                         
     }
     
+
+
+    public function get_templates()
+    {
+        $query = $this->db->select()
+                          ->from('template')
+                          ->get();
+                          return $query->result();
+    }
+
+
+
+
 
 
 

@@ -1,8 +1,9 @@
 $(document).ready(function () {
 	$('.dropdown-trigger').dropdown({
 		constrainWidth: false,
-		coverTrigger: false,
-		closeOnClick: true
+		// coverTrigger: false,
+		closeOnClick: true,
+		hover: true
 	});
 	$('.sidenav').sidenav();
 	$('.collapsible').collapsible();

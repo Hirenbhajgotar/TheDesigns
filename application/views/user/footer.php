@@ -36,6 +36,12 @@
     <script src="<?= base_url('/assets/js/jquery.js') ?>"></script>
     <script src="<?= base_url('/assets/js/materialize.min.js') ?>"></script>
     <script src="<?= base_url('/assets/js/dist/parsley.min.js') ?>"></script>
+
+    <!-- AOS Scroll Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="<?= base_url('/assets/js/init.js') ?>"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

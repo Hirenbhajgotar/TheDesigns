@@ -15,7 +15,7 @@
 <header>
     <nav>
         <div class="nav-wrapper container">
-            <a href="<?= base_url('admin/login') ?>" class="brand-logo white-text">TheDisigns</a>
+            <a href="<?= base_url('admin/login') ?>" class="brand-logo white-text">V I S I O N S</a>
         </div>
     </nav>
 </header>    

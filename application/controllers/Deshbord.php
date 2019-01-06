@@ -316,9 +316,29 @@ class Deshbord extends CI_Controller
             
             return redirect(base_url("zip_upload/".$file."/index.html"));
         }
-        
-        
     }
+
+
+    // download template
+    public function download_zip($id){
+        $this->load->model('Template_model');
+        $download_zip_file = $this->Template_model->find_template($id);
+        if (file_exists("zip_upload/".$download_zip_file->template_zip)) {
+            $path = "zip_upload/".$download_zip_file->template_zip;
+            // echo "<pre>";        
+            // print_r($path);
+            // echo "</pre>";
+            // exit;
+
+            force_download($path, NULL);
+            
+            
+            
+        }
+
+    } 
+
+
 
 
 
