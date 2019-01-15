@@ -1,45 +1,38 @@
 <?php include "header.php"; ?>
     <main>
-        <!-- ------ SLIDER ----- -->
-        <div class="slider">
-            <ul class="slides">
-                <li>
-                    <img src="<?= base_url('/assets/images/book-computer-design-326424.jpg') ?>" class="responsive-img" alt="">
-                    <div class="caption center-align">
-                        <h3>THE DESIGNS</h3>
-                        <h5>Use our templates and snippets for any project, personal or commercial. 
-                            All of the item your see are built in the Bootstrap or MaterializeCSS.
-                        </h5>
+        <!-- particle js -->
+        <div id="particles-js" class="">
+            <div class="header">
+                <h2 id="head">THEDESIGNS.com</h2>
+                <h3 id="para">Right way to find<span class="ityped"></span></h3>    
+            </div>
+         </div>
+        
+
+        <!-- introductio -->
+        <div class="container" id="intro">
+            <div class="row">
+                <div class="section center" style="">
+                    <div class="col s-12 m12 l12">
+                        <h3>Forever free, open source and easy to use</h3>
+                        <p class="flow-text">Use our <strong>template, theme and snippet free</strong> for any project, personal or commercial. 
+                            <br>All of the item your see are built in the <strong>HTML5, CSS3 and Bootstrap or MaterializeCSS or other awsome freamworks</strong>.
+                        </p>
                     </div>
-                </li>
-                <li>
-                    <img src="<?= base_url('/assets/images/hal-gatewood-613602-unsplash.jpg') ?>" class="responsive-img" alt="">
-                    <div  class="caption left-align">
-                        <h3>Templates</h3>
-                        <h5>Fully Awsome and Cool Responsive Templates</h5>
-                    </div>
-                </li>
-                <li>
-                    <img src="<?= base_url('/assets/images/charts-computer-data-669615.jpg') ?>" class="responsive-img" alt="">
-                    <div class="caption right-align">
-                        <h3>Snippets</h3>
-                        <h5>Awsome Vareint framework's Snippets</h5>
-                    </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
-        <!-- ------ !SLIDER ----- -->
+
 
 
         <!-- ------ TEMPLATE SECTION ------ -->
         <div class="container">
-            <h2 class="center template_header" data-aos="fade-down">Templates</h2>
-            <hr class="my_hr" id="hr1" style="width: 28%;">
+            <h2 class="center template_header" data-aos="zoom-in-up" data-aos-duration="400">Templates</h2>
             <br>
             <div class="row">
                 <?php foreach($template_data as $data): ?>
                 <div class="col s12 m4 l4">
-                    <div class="card">
+                    <div class="card" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                         <div class="card-image">
                             <!-- <a href="Templates/"> -->
                             <?php 
@@ -52,7 +45,7 @@
                             <?= anchor("Templates/templateView/{$data->id}", img($img)) ?>
                                 <!-- <img src="<?= base_url('file_upload/'.$data->template_image) ?>" class="responsive-img" alt=""> -->
                             <!-- </a> -->
-                            <a href="Templates" class="btn-floating halfway-fab waves-effect waves-light btn-large red tooltipped"><i class="material-icons">chevron_right</i></a>
+                            <a href="Templates" class="btn-floating halfway-fab waves-effect waves-light red tooltipped"><i class="material-icons">chevron_right</i></a>
                             
                         </div>
                         <div class="card-content">
@@ -69,13 +62,12 @@
 
         <!-- SNIPPETS SECTION -->
         <div class="container">
-            <h2 class="center snippet_header"><span>S</span>nippets</h2>
-            <hr class="my_hr" id="hr2">
+            <h2 class="center snippet_header" data-aos="zoom-in-up" data-aos-duration="400">Snippets</h2>
             <br>
             <div class="row">
                 <div class="col s12 m4 l4">
                     <a href="#">
-                        <div class="card hoverable">
+                        <div class="card hoverable" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img src="<?= base_url('/assets/images/adult-book-business-297755.jpg') ?>" class="responsive-img large" alt="">
                             </div>
@@ -87,7 +79,7 @@
                 </div>
                 <div class="col s12 m4 l4">
                     <a href="#">
-                        <div class="card hoverable">
+                        <div class="card hoverable" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img src="<?= base_url('/assets/images/pexels-photo-356056.jpeg') ?>" class="responsive-img" alt="">
                             </div>
@@ -99,7 +91,7 @@
                 </div>
                 <div class="col s12 m4 l4">
                     <a href="#">
-                        <div class="card hoverable">
+                        <div class="card hoverable" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img src="<?= base_url('/assets/images/pexels-photo-373076.jpeg') ?>" class="responsive-img" alt="">
                             </div>
@@ -110,7 +102,7 @@
                     </a>
                 </div>
             </div><!-- end row -->
-            <div class="center">
+            <div class="center" data-aos="zoom-in" data-aos-duration="500">
                 <button id="snippet_btn" class="btn-large indigo lighten-1 waves-effect waves-light">View More Snippets..</button>
             </div>
             <br>

@@ -1,38 +1,57 @@
 :root {
-	--secondary-color: #039be5;
+	/*--secondary-color: #039be5;*/
+	--secondary-color: #F05F40;
 	/* for navbar and dropdown color */
-	--prime-color: rgba(33,33,33); 
-	/* --prime-color: #212121;  */
+	/*--prime-color: rgba(33,33,33); */
+	--prime-color: #5c6bc0; 
+
+
+	/* font-family heading */
+	--primary-font-family-heading: 'Open Sans', sans-serif;
+	--primary-font-family-sub-heading: 'Source Sans Pro', sans-serif;
+	
+	/* font-family paragraph */
+	--primary-font-family-paragraph: 'Raleway', sans-serif;
+	--primary-font-family-sub-paragraph: 'Source Sans Pro', sans-serif;
+	
+	--font-family-dosis: 'Dosis', sans-serif; 
 }
 body{
+	margin: 0;
+	/*padding: 0;*/
 	background-color: #f9f9f9;
+	font-family: 'Source Sans Pro', sans-serif;
 }
+
+
+
 /* *********** NAVBAR *********** */
 /* nav .nav-wrapper #navbar_links li a:hover {
 	background-color: #009688;
 } */
 header nav{
-	background-color: var(--prime-color) !important;
+	/*background-color: rgba(33,33,33) !important;*/
+	background-color: #161b1f !important;
+	
 }
 header nav .nav-wrapper .dropdown-content li a{
 	color: var(--prime-color) !important;
+	padding-right: 20px;
+	padding-left: 20px;
 }
-
-/* *********** end navbar *********** */
-
-
-
-
-/* *********** SIDENAV ********** */
-
-
-.sidenav li.active {
+header nav .nav-wrapper .dropdown-content{
+	overflow-y: hidden;
+}
+/*.sidenav li.active {
 	background-color: rgba(0, 0, 0, 0.07);
-}
+}*/
 header nav .nav-wrapper .brand-logo{ /* brand logo */
 	color: #5c6bc0 !important;
 	letter-spacing: 5px !important;
 	font-size: 25px !important;
+	/*font-family: 'Open Sans', sans-serif;*/
+	font-family: var(--primary-font-family-heading);
+
 }
 header nav .nav-wrapper .brand-logo span{ /* brand logo */
 	color: #F05F40 !important;
@@ -40,9 +59,13 @@ header nav .nav-wrapper .brand-logo span{ /* brand logo */
 }
 header nav .nav-wrapper #links li a{ /* links */
 	color: #bcbcbc !important;
-	font-weight: 600;
+	/*font-weight: 500;*/
 	letter-spacing: 1px !important;
 	outline: none !important;
+	/*font-size: 13px;*/
+	/*font-family: 'Open Sans', sans-serif;*/
+	/*font-family: 'Raleway', sans-serif;*/
+	font-family: var(--primary-font-family-paragraph);
 }
 header nav .nav-wrapper #links li .dropdown-trigger .fa-angle-down{ /* links icon */
 	margin-left:5px !important;
@@ -53,88 +76,164 @@ header nav .nav-wrapper #links li a:hover{ /* links */
 header nav .nav-wrapper #links #templates li a{ /* sub links */
 	color: #797979 !important;
 }
-/* header nav .nav-wrapper #links #templates li .active{
-	color: #F05F40 !important;
-} */
 
-/* sidenav */
-nav .sidenav li a {
+
+
+
+/* SIDENAV MODAL */
+#mobile-ver{
+	width: 95%;
+}
+.modal .modal-content .modal-close{
+	/*box-sizing: border-box;*/
+	font-weight: 500 !important;
+	display: block;
+	line-height: 0;
+	color: #bd9bd2;
+}
+.modal .modal-content .section #get_start{
+	color: #bd9bd2 !important;
+	font-size: 17px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+.modal .modal-content #temp h4{
+	font-size: 17px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #9aa3d3 !important;
+}
+
+.modal .modal-content #temp ul li a{
+	color: #5766B6 !important;
+	font-size: 14px;
+	font-weight: 600;
+}
+.modal .modal-content #snip h4{
+	font-size: 17px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #eca7c6 !important;
+}
+.modal .modal-content #snip ul li a{
+	color: #DD3676 !important;
+	font-size: 14px;
+	font-weight: 600;
+}
+.modal .modal-content #cont h4 a{
+	font-size: 17px;
+	font-weight: 600;
+	text-transform: uppercase;
+	/*color: #39A08A !important;*/
+	color: #49A894 !important;
+}
+.modal .modal-content .section{
+	padding-top: 5px !important;
+	padding-bottom: 0px !important;
+}
+.modal .modal-content .section ul li a{
+	color: black !important;
+	/*line-height: none !important;*/
+	margin: 0 !important;
+	padding: 0 !important;
+	line-height: 2.2;
+
+}
+.modal{ /* hide scrollbar*/
+	overflow-y: hidden;
+}
+/*.modal .modal-content .section p a{
+	float: none;
+	color: #6a1b9a;
+	
+}*/
+/* !SIDENAV MODAL */
+
+
+
+
+/* PARTICLE JS */
+main #particles-js{
+	/*background: #1c2227;*/
+	background: rgba(28,34,39); 
+	height: 100vh;
+	/*padding-top: 1px;*/
+} 
+main #particles-js .header{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	text-align: center;
+
+}
+main #particles-js h3 .ityped{
+	text-align: center !important;
+}
+main #particles-js .header #head{
+	color: #e5e5e5;
+	/*font-family: 'Open Sans', sans-serif; */
+	font-family: var(--primary-font-family-heading);
+	font-size: 70px;
+	font-weight: 300;
+
+}
+
+/* ITYPED JS */
+main #particles-js .header #para{
+	color: #999999;
+	font-family: 'Dosis', sans-serif;
+}
+main #particles-js .header #para  .ityped{
+	color: #F05F40;
+}
+/* !ITYPED JS */
+/* !PARTICLE JS */
+
+
+
+/* INTRODUCTION */
+#intro .row .section .col h3{
+	/*font-family: 'Open Sans', sans-serif;*/
+	font-family: var(--primary-font-family-heading);
+	font-size: 35px;
+}
+#intro .row .section .col p,
+#intro .row .section .col p strong{
+	/*font-family: 'Raleway', sans-serif;*/
+	font-family: var(--primary-font-family-paragraph);
+	font-size: 22px;
+}
+#intro .row .section .col p strong{
 	font-weight: 500;
-	/* color: #1976d2; */
-	color: var(--secondary-color);
 }
-
-nav .sidenav li a i {
-	/* color: #1976d2 !important; */
-	color: var(--secondary-color) !important;
-}
-
-.sidenav .collapsible-header {
-	padding: 0 32px !important;
-}
-
-.sidenav .collapsible-body li a {
-	padding: 0 75px;
-}
-
-.sidenav li>a>i {
-	margin-right: 18px !important;
-}
-
-/* *********** end SIDENAV ********** */
-
-
-/* *********** SLIDER ************ */
-main .slider .slides{
-	background-color: rgba(33,33,33,0.9);
-}
-main .slider .slides li .caption h3 {
-	color: #bdbdbd;
-}
-
-main .slider .slides li .caption h5 {
-	color: #616161;
-}
-main .slider .slides li img{
-	/*filter: blur(2px) brightness(3%) !important;*/
-	filter: opacity(70%) brightness(2%) blur(1px);
-
-}
-
-
-/* *********** !SLIDER ************ */
+/* !INTRODUCTION */
 
 
 
-/* *********** TEMPLATES SECTION *********** */
+
+/* TEMPLATES SECTION */
 main .container .template_header,.snippet_header{ /* template and snippet heading */
 	color: #424242;
 }
 /* main .container .template_header span,.snippet_header span{
 	color: #F05F40;
 } */
-main .container .my_hr{ /* hr tag */
-	width: 26%;
-	/* color:424242; */
-	/* color: #F05F40 !important; */
-	color: #f48f79 !important;
-	background-color: #f48f79 !important;
-	font-weight: 100 !important;
-}
-/* *********** !TEMPLATES SECTION *********** */
+
+/* !TEMPLATES SECTION */
 
 
 
-/* *********** SNIPPETS SECTION ***********  */
+/* SNIPPETS SECTION  */
 main .container .center #snippet_btn {
 	text-transform: none !important;
 }
 
-/* *********** !SNIPPETS SECTION ***********  */
+/* !SNIPPETS SECTION */
 
 
 
-/* *********** FOOTER *********** */
+/* FOOTER */
 footer .container .row .col #social li {
 	display: inline !important;
 	margin-right: 20px;
@@ -160,13 +259,23 @@ footer .container .row .col #links li {
 	background-color: #222d32;
 }
 
-/* *********** !FOOTER *********** */
+/* !FOOTER */
 
-/* template preview page */
-#template_preview .row ul li #down_btn{ /* template download btn */
+
+
+/* TEMPLATE PREVIEW PAGE */
+#template_preview .row .col .section .temp_header{
+	font-family: var(--primary-font-family-heading);
+}
+#template_preview .row .col .down-pre-btn li{
+	display: inline-block; 
+	margin-bottom: 10px !important; 
+	margin-right: 10px;
+}
+#template_preview .row .down-pre-btn li #down_btn{ /* template download btn */
 	background-color: #F05F40;
 }
-#template_preview .row ul li #pre_btn{ /* template preview btn */
+#template_preview .row .down-pre-btn li #pre_btn{ /* template preview btn */
 	background-color: #5c6bc0;
 }
 #template_preview .row .section .features li i{ /* main features list */
@@ -177,3 +286,26 @@ footer .container .row .col #links li {
 #template_preview .row .desc_head p strong{ /* template description */
 	font-size: 25px;
 }
+/* !TEMPLATE PREVIEW PAGE */
+
+
+/* MEDIA QUERYS */
+
+/* Extra small devices (phones, 600px and down) */
+/* particle js header */
+@media only screen and (max-width: 600px) {
+	main #particles-js .header #head{
+		font-size: 35px;
+	}
+	main #particles-js .header #para{
+		font-size: 23px;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* particle js header */
+@media only screen and (min-width: 601px) {
+	main #particles-js .header #head{
+		font-size: 70px;
+	}
+} 

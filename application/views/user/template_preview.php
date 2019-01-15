@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col s12 m10 l10 offset-m1 offset-l1">
 			<div class="section">
-				<h3><?= $template_data->template_header ?></h3>
+				<h3 class="temp_header"><?= $template_data->template_header ?></h3>
 		        <?php if(!empty($template_data->update_at)): ?>
 		        	<pre><i class="far fa-clock"></i> <?= $template_data->update_at ?></pre>
 		        	<?php else: ?>
@@ -23,12 +23,12 @@
 		
 	</div>
 	<div class="row">
-		<div class="col s12 m12 l12 center-align">
+		<div class="col s8 m12 l12 center-align offset-s2">
 			
-			<ul>
+			<ul class="down-pre-btn">
 				<!-- <li style="display: inline;"><a href="zip_upload/.$template_data->template_zip"  id="down_btn" class="btn"><i class="fas fa-cloud-download-alt"></i> Download</a></li> -->
-				<li style="display: inline;" class="valign-wrapper"><?php echo anchor("User/download_zip/{$template_data->id}", "<i class='fas fa-cloud-download-alt'></i> Download", ['class'=>'btn btn-large', 'id'=>'down_btn']) ?></li>
-				<li style="display: inline;" class="valign-wrapper"><?php echo anchor("User/archive_zip/{$template_data->id}", "<i class='far fa-eye'></i> live Preview", ['class'=>'btn btn-large', 'id'=>'pre_btn']) ?></li>
+				<li class="valign-wrapper"><?php echo anchor("User/download_zip/{$template_data->id}", "<i class='fas fa-cloud-download-alt'></i> Download", ['class'=>'btn btn-large', 'id'=>'down_btn', 'data-aos'=>'zoom-in']) ?></li>
+				<li class="valign-wrapper"><?php echo anchor("User/archive_zip/{$template_data->id}", "<i class='far fa-eye'></i> live Preview", ['class'=>'btn btn-large', 'id'=>'pre_btn', 'data-aos'=>'zoom-in']) ?></li>
 				<!-- <li style="display: inline;" class="valign-wrapper"><button id="pre_btn" class="btn"><i class="far fa-eye"></i> live Preview</button></li> -->
 			</ul>
 			<!-- <div class="section">
