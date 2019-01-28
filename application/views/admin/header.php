@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TheDesign/Deshbord</title>
+    
+    <!-- Google icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,500|Open+Sans:300,400,600|Poppins:300,400,500|Source+Sans+Pro:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700" rel="stylesheet">
+    
+    <!-- Fontawsome icon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    
+    <!-- Meterialize css -->
     <link rel="stylesheet" href="<?= base_url('/assets/css/materialize.min.css') ?>">
+    
+    <!-- Parsley -->
     <link rel="stylesheet" href="<?= base_url('/assets/css/parsley.css') ?>">
+    
+    <!-- Custom css -->
     <link rel="stylesheet" href="<?= base_url('/assets/css/adminStyle.css') ?>">
+
+    <!-- Ckeditor js file-->
+    <script type="text/javascript" src="<?= base_url('/assets/ckeditor/ckeditor.js') ?>"></script>
+
     <style>
         header,
         main,
@@ -55,7 +73,7 @@
             <!-- <li><div class="divider"></div></li> -->
             <li><a href="<?= base_url('deshbord') ?>" class="waves-effect waves-light">Home</a></li>
             <li><a href="<?= base_url('Deshbord/template') ?>" class="waves-effect waves-light">Template</a></li>
-            <li><a href="<?= base_url() ?>" class="waves-effect waves-light">Snippet</a></li>
+            <li><a href="<?= base_url('deshbord/snippet') ?>" class="waves-effect waves-light">Snippet</a></li>
             <li><a href="<?= base_url() ?>" class="waves-effect waves-light">Feedback</a></li>
             <li><div class="divider"></div></li>
             <?php if($this->session->userdata('id')): ?>

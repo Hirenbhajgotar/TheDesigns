@@ -1,9 +1,10 @@
 :root {
 	/*--secondary-color: #039be5;*/
-	--secondary-color: #F05F40;
 	/* for navbar and dropdown color */
 	/*--prime-color: rgba(33,33,33); */
+	
 	--prime-color: #5c6bc0; 
+	--secondary-color: #F05F40;
 
 
 	/* font-family heading */
@@ -18,7 +19,7 @@
 }
 body{
 	margin: 0;
-	/*padding: 0;*/
+	padding: 0;
 	background-color: #f9f9f9;
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -156,7 +157,7 @@ header nav .nav-wrapper #links #templates li a{ /* sub links */
 main #particles-js{
 	/*background: #1c2227;*/
 	background: rgba(28,34,39); 
-	height: 100vh;
+	height: 90vh;
 	/*padding-top: 1px;*/
 } 
 main #particles-js .header{
@@ -216,9 +217,10 @@ main #particles-js .header #para  .ityped{
 main .container .template_header,.snippet_header{ /* template and snippet heading */
 	color: #424242;
 }
-/* main .container .template_header span,.snippet_header span{
-	color: #F05F40;
-} */
+
+main .container .row .card .card-image img{
+	min-height: 177px !important; 
+}
 
 /* !TEMPLATES SECTION */
 
@@ -227,6 +229,14 @@ main .container .template_header,.snippet_header{ /* template and snippet headin
 /* SNIPPETS SECTION  */
 main .container .center #snippet_btn {
 	text-transform: none !important;
+}
+
+main .container .row .card .card-content .snip-title{
+	font-size: 19px !important;
+	/*color: #272727;*/
+}
+main .container .row .card .card-content{
+	padding: 20px;
 }
 
 /* !SNIPPETS SECTION */
@@ -263,6 +273,10 @@ footer .container .row .col #links li {
 
 
 
+
+
+
+
 /* TEMPLATE PREVIEW PAGE */
 #template_preview .row .col .section .temp_header{
 	font-family: var(--primary-font-family-heading);
@@ -289,23 +303,51 @@ footer .container .row .col #links li {
 /* !TEMPLATE PREVIEW PAGE */
 
 
+
+
+
 /* MEDIA QUERYS */
 
 /* Extra small devices (phones, 600px and down) */
-/* particle js header */
 @media only screen and (max-width: 600px) {
-	main #particles-js .header #head{
+	main #particles-js .header #head{/* particle js header */
 		font-size: 35px;
 	}
 	main #particles-js .header #para{
 		font-size: 23px;
 	}
+	main #contect #particles-js .particles-js-canvas-el{/* particle js */
+		margin-top: -8px;
+	}
+
+	main #contect #particles-js .container .row .col{
+		text-align: center;
+	}
+	main #contect #particles-js .container .row .col #contect_head{/* particle js contect header */
+		font-size: 35px !important;
+	}
+	main #contect #particles-js .container .row .col #contect_para{/* particle js contect patagraph */
+		font-size: 20px !important;
+	}
+
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-/* particle js header */
-@media only screen and (min-width: 601px) {
+
+@media only screen and (min-width: 601px) {/* particle js header */
 	main #particles-js .header #head{
 		font-size: 70px;
 	}
+
+	main #contect #particles-js .particles-js-canvas-el{/* particle js background */
+		position: absolute;
+		top: 64px;
+		left: 0;
+	}
+
+	main .container .row .card .card-image img{/* template card */
+		height: auto !important;
+	}
+
 } 

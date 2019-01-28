@@ -23,7 +23,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                &copy; All Rights Reseved
+                &copy; All Rights Reserved
             </div>
         </div>
     </footer>
@@ -59,6 +59,13 @@
             backSpeed : 30,
              backDelay: 1000,
         })
+    </script>
+
+    <!-- Parsley js -->
+    <script src="<?= base_url('/assets/js/dist/parsley.min.js') ?>"></script>
+    <script>
+        $('#form').parsley();
+        $('#update_form').parsley();
     </script>
 </body>
 </html>

@@ -16,16 +16,25 @@
     <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,500|Open+Sans:300,400,600|Poppins:300,400,500|Source+Sans+Pro:300,400,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700" rel="stylesheet">
     
+    <!-- Materialize css -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/materialize.min.css') ?>">
+
     <!-- AOS Scroll Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('assets/css/materialize.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/parsley.css') ?>">
 
     <!-- normalize css/ reset css -->
     <link rel="stylesheet" href="<?= base_url('assets/css/normalize.css') ?>">
 
+    <!-- parsley js -->
+    <link rel="stylesheet" href="<?= base_url('/assets/css/parsley.css') ?>">
+
     <!-- Custom Style -->
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+
+    <!-- contect css -->
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/contect.css') ?>">
+
 </head>
 <body>
     <!-- NAVBAR -->
@@ -46,8 +55,8 @@
                         <li><a href="">Other Templates</a></li>
                     </ul>
                     <!-- !DROPDOWON CONTENT -->
-                    <li><a href="">SNIPPETS</a></li>
-                    <li><a href="">CONTECT US</a></li>
+                    <li class=""><a class="disabled">SNIPPETS</a></li>
+                    <li><a href="<?= base_url('contect') ?>">CONTECT US</a></li>
                 </ul>
             </div>
         </nav>

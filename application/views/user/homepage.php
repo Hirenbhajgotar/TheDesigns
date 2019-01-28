@@ -15,8 +15,8 @@
                 <div class="section center" style="">
                     <div class="col s-12 m12 l12">
                         <h3>Forever free, open source and easy to use</h3>
-                        <p class="flow-text">Use our <strong>template, theme and snippet free</strong> for any project, personal or commercial. 
-                            <br>All of the item your see are built in the <strong>HTML5, CSS3 and Bootstrap or MaterializeCSS or other awsome freamworks</strong>.
+                        <p class="">Use our <strong>template, theme and snippet free</strong> for any project, personal or commercial. 
+                            All of the item your see are built in the <strong>HTML5, CSS3 and Bootstrap or MaterializeCSS or other awsome freamworks</strong>.
                         </p>
                     </div>
                 </div>
@@ -45,11 +45,13 @@
                             <?= anchor("Templates/templateView/{$data->id}", img($img)) ?>
                                 <!-- <img src="<?= base_url('file_upload/'.$data->template_image) ?>" class="responsive-img" alt=""> -->
                             <!-- </a> -->
-                            <a href="Templates" class="btn-floating halfway-fab waves-effect waves-light red tooltipped"><i class="material-icons">chevron_right</i></a>
-                            
+                            <!-- <a href="Templates" class="btn-floating halfway-fab waves-effect waves-light red tooltipped"><i class="material-icons">chevron_right</i></a> -->
+                            <?= anchor("Templates/templateView/{$data->id}", "<i class='material-icons'>chevron_right</i>", ['class'=>'btn-floating halfway-fab waves-effect waves-light red tooltipped']) ?>
+
                         </div>
                         <div class="card-content">
-                            <span class="card-title"><?= $data->template_header ?></span>
+                            <span class="card-title truncate"><h5><?= $data->template_header ?></h5></span>
+                            <p class="truncate"><?= $data->sub_heading ?></p>
                         </div>
                     </div>
                 </div>
@@ -72,7 +74,7 @@
                                 <img src="<?= base_url('/assets/images/adult-book-business-297755.jpg') ?>" class="responsive-img large" alt="">
                             </div>
                             <div class="card-content">
-                                <span class="card-title">materialize Login</span>
+                                <span class="card-title snip-title truncate">materialize Login</span>
                             </div>
                         </div>
                     </a>
@@ -84,7 +86,7 @@
                                 <img src="<?= base_url('/assets/images/pexels-photo-356056.jpeg') ?>" class="responsive-img" alt="">
                             </div>
                             <div class="card-content">
-                                <span class="card-title">Materialize Carousel</span>
+                                <span class="card-title snip-title">Materialize Carousel</span>
                             </div>
                         </div>
                     </a>
@@ -96,7 +98,7 @@
                                 <img src="<?= base_url('/assets/images/pexels-photo-373076.jpeg') ?>" class="responsive-img" alt="">
                             </div>
                             <div class="card-content">
-                                <span class="card-title">Materialize Slider</span>
+                                <span class="card-title snip-title">Materialize Slider</span>
                             </div>
                         </div>
                     </a>
@@ -110,6 +112,20 @@
             <br>
         </div>
         <!-- !SNIPPETS SECTION -->
+
+        <!-- <iframe src="http://[::1]/TheDesigns/index.php/Templates/templateView/69">
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Document</title>
+            </head>
+            <body>
+                <h3>hiren</h3>
+            </body>
+            </html>
+        </iframe> -->
+
     </main>
     
 <?php include "footer.php"; ?>

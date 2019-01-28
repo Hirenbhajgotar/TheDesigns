@@ -6,7 +6,7 @@
                 <!-- <h3>Template</h3> -->
                 <div class="section">
                     <!-- <a data-target="template_modal" href="<?= base_url('deshbord/add_template') ?>" class="btn waves-effect waves-light indigo lighten-1 modal-trigger">Add template</a> -->
-                    <a data-target="template_modal" href="" class="btn waves-effect waves-light indigo lighten-1 modal-trigger">Add template</a>
+                    <a data-target="template_modal" id="temp-m-trigger" href="" class="btn waves-effect waves-light modal-trigger">Add template</a>
                 </div>
                 <div class="section">
                     <table id="template_table" class="highlight responsive-table">
@@ -82,6 +82,13 @@
                         <input type="text" name="template_header" id="template_header" data-parsley-required data-parsley-trigger="keyup" data-parsley-pattern="^[a-zA-Z0-9_ ]*$">
                     </div>
                     <?php echo form_error('template_header') ?>
+
+                    <div class="input-field" id="head_temp">
+                        <i class="material-icons prefix">edit</i>
+                        <label for="template_header">sub heading</label>
+                        <input type="text" name="sub_heading" id="sub_heading" data-parsley-required data-parsley-trigger="keyup" data-parsley-pattern="^[a-zA-Z0-9_ ]*$">
+                    </div>
+                    <?php echo form_error('sub_heading') ?>
                     
                     <div class="input-field file-field">
                         <div class="btn btn-flat transparent black-text">
@@ -116,8 +123,8 @@
                     ?> -->
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn waves-effect waves-light indigo lighten-1"  >submit</button>
-                    <button type="reset" class="btn modal-close waves-effect waves-light red lighten-1">Reset & close</button>
+                    <button type="submit" class="btn waves-effect waves-light"  >submit</button>
+                    <button type="reset" class="btn modal-close waves-effect waves-light">Reset & close</button>
                 </div>
             <!-- </form> -->
             <?php echo form_close(); ?>

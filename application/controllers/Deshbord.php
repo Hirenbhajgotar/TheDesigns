@@ -339,6 +339,16 @@ class Deshbord extends CI_Controller
     } 
 
 
+    // snippet
+    public function snippet(){
+        $this->load->view('Admin/snippet');
+    } 
+
+    // add snippet
+    public function add_snippet(){
+        $this->load->view('Admin/add_snippet');
+    } 
+
 
 
 

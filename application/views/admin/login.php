@@ -1,7 +1,7 @@
 <?php include "login_signup_header.php"; ?>
 
 <main>
-    <div class="container">
+    <div class="container login-form">
         <div class="row">
             <div class="col s12 m6 l6 offset-m3 offset-l3">
                 <div class="section">
@@ -24,7 +24,7 @@
                                     </div>
                                     <?= form_error('password') ?>
                                     <button type="submit" class="btn indigo lighten-1 waves-effect waves-light">Login</button>
-                                    New to theDesigns? <a href="<?= base_url('admin/signup') ?>">Create an account</a>
+                                    <a href="<?= base_url('admin/signup') ?>">Create an account</a>
                                 <?= form_close() ?>
                             </div>
                         </div>

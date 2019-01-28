@@ -1,15 +1,21 @@
 :root {
-	--secondary-color: #039be5;
-	--prime-color: rgba(38, 50, 56, 0.9);
+	/*--secondary-color: #039be5;*/
+	/*--prime-color: rgba(38, 50, 56, 0.9);*/
 	/* for navbar and dropdown color */
+
+    --prime-color: #5c6bc0;
+    --secondary-color: #F05F40;
 }
 body{
+    margin: 0;
+    padding: 0;
     background-color: #f5f5f5;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 /* **************** navbar **************** */
 header nav{
-    background-color: var(--prime-color);
+    background-color: rgba(38, 50, 56, 0.9);
 }
 /* **************** end navbar **************** */
 
@@ -17,17 +23,20 @@ header nav{
 /* DESHBORD sidenav */
 header .sidenav .center .section a{ /* logo */
     font-size:28px;
-    color: #5c6bc0 !important;
+    /*color: #5c6bc0 !important;*/
+    color: var(--prime-color) !important;
 }
 header .sidenav .center .section a span{ /* logo */
-    color:#F05F40 !important;
+    /*color:#F05F40 !important;*/
+    color: var(--secondary-color) !important;
 }
 header .sidenav li a{ /* sidebar links */
     font-size: 19px;
     color: #8b91a0;
 }
 header .sidenav li a:hover{ /* sidebar links */
-    color: #F05F40 !important;
+    /*color: #F05F40 !important;*/
+    color: var(--secondary-color) !important;
 }
 header .sidenav li #logout_btn{ /* logout button */
     background-color:#F05F40 !important;
@@ -105,24 +114,60 @@ nav .brand-logo{
 #update_temp .card .card-content .input-field i,
 /* add template form */
 #add_temp .modal .modal-content .input-field .prefix,
-#add_temp .modal .modal-content .input-field i{
-	/* update template form */
+#add_temp .modal .modal-content .input-field i,/*add template*/
+#add_snipp .row .input-field .prefix,/*add snippet form*/
+#add_snipp .row .input-field .btn{/*add snippet form*/
+	
     color: #607d8b !important;
 }
 .container .section .card .input-field .prefix.active,
-#update_temp .card .card-content .input-field .prefix.active,
-#update_temp .card .card-content .input-field i{/* update template form */
-    color: #455a64 !important;
+#add_temp .modal .modal-content .input-field .prefix.active,/* add tamplate */
+#update_temp .card .card-content .input-field .prefix.active,/* update tamplate */
+#add_snipp .row .input-field .prefix .prefix.active{/* add snippet form */
+    /*color: #455a64 !important;*/
+    color: var(--prime-color) !important;
 }
+
 .container .card .card-content .section form .btn{
     margin-left: 43px;
 }
-/* update template form */
-#update_temp .card .card-content #head_input,
-/* add template form */
-#add_temp .modal .modal-content #head_temp {
+
+#update_temp .card .card-content #head_input,/* update template form */
+#add_temp .modal .modal-content #head_temp,/* add template form */
+#add_snipp .row form #head_snip {/* add snippet form */
     margin-left: 16px;
 }
 
+main #add_temp #template_modal{
+    overflow-y: hidden;
+}
+
+#add_snipp .row form button[type="submit"],/* snippet form submit button */
+#snippet .row .section #add-snip-btn,/* add snippet button */
+main #add_temp .row .section #temp-m-trigger,/* template form submit button */
+#add_temp .modal .modal-footer button[type="submit"]{/* add template button */
+    background-color: #5c6bc0 !important;
+}
+#add_snipp .row form button[type="reset"],
+#add_temp .modal .modal-footer button[type="reset"]{
+    background-color: #ef5350 !important;
+}
+
+
+
 /* ************ end signup form validation error ************ */
 
+/* ADMIN LOGIN FORM */
+.login-form .row .col .section .card .card-content form input[type=text]:focus + label,/* login form */
+.login-form .row .col .section .card .card-content form input[type=password]:focus + label,
+#add_temp .modal form .modal-content .input-field label.active{/* add template */
+    color: var(--prime-color) !important;
+}
+.login-form .row .col .section .card .card-content form input[type=text]:focus,/* login form */
+.login-form .row .col .section .card .card-content form input[type=password]:focus,
+#add_temp .modal form .modal-content .input-field input[type=text]:focus{/* add teplate */
+    border-bottom: 1px solid var(--prime-color) !important;
+    -webkit-box-shadow: 0 1px 0 0 var(--prime-color);
+    box-shadow: 0 1px 0 0 var(--prime-color);
+}
+/* !ADMIN LOGIN FORM */

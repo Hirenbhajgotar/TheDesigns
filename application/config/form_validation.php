@@ -40,6 +40,12 @@ $config = [
             'label' => 'template header',
             'rules' => 'required|alpha_numeric_spaces'
         ],
+
+        [
+            'field' => 'sub_heading',
+            'label' => 'template sub heading',
+            'rules' => 'required|alpha_numeric_spaces'
+        ]
     ],
 
 
